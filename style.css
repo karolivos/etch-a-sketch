@@ -19,6 +19,7 @@ body {
     box-sizing: border-box;
     flex: 1 0 calc(100% / var(--grid-cols));
     height: calc(90vh / var(--grid-rows));
+    opacity: 0.1;
 }
 
 #container {
@@ -39,4 +40,8 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0.1);
 }

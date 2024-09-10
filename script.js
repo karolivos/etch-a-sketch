@@ -14,7 +14,14 @@ function makeRows(rows, cols) {
   const gridItems = document.querySelectorAll(".grid-item");
   gridItems.forEach((item) => {
     item.addEventListener("mouseover", () => {
-      item.classList.add("hovered-grid-item");
+        if(!item.dataset.colorSet) {
+      item.style.backgroundColor = randomRGB();
+      item.dataset.colorSet = true;
+        }
+        let opacity = parseFloat(window.getComputedStyle(item).opacity);
+        if (opacity < 1) {
+            item.style.opacity = opacity + 0.1;
+        }
     });
   });
 }
@@ -47,3 +54,14 @@ btn.addEventListener("click", () => {
     alert("Invalid input, please enter a valid input!");
   }
 });
+
+
+function randomRGB () {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    let RGBColor = `rgb(${x},${y},${z})`;
+    return RGBColor;
+}
+
+console.log(randomRGB())
